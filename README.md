@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WebPGP
 
-## Getting Started
+WebPGP是一个基于Web的PGP（Pretty Good Privacy）加密解决方案，使用OpenPGP.js库实现加密和解密功能，提供简单易用的网页界面。
 
-First, run the development server:
+## 功能特点
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 文本加密与解密
+- 密钥生成与管理
+- 文件加密与解密
+- 数字签名验证
+- 在浏览器中本地处理，无需服务器存储敏感数据
+
+## 技术栈
+
+- HTML/CSS/JavaScript
+- [OpenPGP.js](https://openpgpjs.org/) - PGP加密库
+- Bootstrap - UI界面框架
+
+## 安装与使用
+
+1. 克隆仓库
+```
+git clone https://github.com/yourusername/WebPGP.git
+cd WebPGP
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 使用HTTP服务器打开项目（如Python的http模块）
+```
+python -m http.server
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 在浏览器中访问 `http://localhost:8000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 使用指南
 
-## Learn More
+### 生成密钥对
+1. 在"密钥管理"标签下填写名称和邮箱
+2. 设置密码保护私钥
+3. 点击"生成密钥对"按钮
+4. 保存生成的公钥和私钥
 
-To learn more about Next.js, take a look at the following resources:
+### 加密消息
+1. 在"加密"标签下输入或粘贴要加密的文本
+2. 添加接收者的公钥
+3. 点击"加密"按钮
+4. 复制生成的加密文本
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 解密消息
+1. 在"解密"标签下粘贴加密的文本
+2. 选择或输入您的私钥
+3. 输入私钥密码
+4. 点击"解密"按钮查看解密后的内容
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 安全注意事项
 
-## Deploy on Vercel
+- 私钥应妥善保管，不要分享给他人
+- 建议使用强密码保护私钥
+- 所有加密和解密操作都在本地浏览器中完成，不会向服务器发送数据
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 许可证
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+本项目采用 MIT 许可证 - 详情请查看 [LICENSE](LICENSE) 文件
